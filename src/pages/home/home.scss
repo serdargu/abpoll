@@ -1,0 +1,58 @@
+page-home {
+
+	.pic {
+		width: 49%;
+      	float: left;
+		height: 200px;
+		object-fit: cover;
+		-webkit-mask-image: -webkit-gradient(linear, center top, center bottom, 
+		color-stop(0.75,  rgba(0,0,0,1)),
+		color-stop(1.00,  rgba(0,0,0,0)));
+	}
+	.blank {
+		width: 2%;
+		
+	}	
+	.r-pic {
+		float: right;
+	}
+
+	.timer {
+
+		position: absolute;
+		top: 7px;
+		right: 7px;
+		z-index: 999;
+		color: #2C4F23;
+		text-align: center;
+		background-color: white;
+		border: 2px solid #4A4A4A;
+    	border-radius: 5px;
+
+	}
+
+	.likes {
+
+		position: absolute;
+		bottom: 5px;
+		left: 10px;
+		color: #4A4A4A;
+
+	}
+
+	.comments {
+
+		bottom: 5px;
+		right: 10px;
+		position: absolute;
+		color: #4A4A4A;
+
+	}
+
+	ion-card {
+		margin: 0 0 0 0 !important;
+		width:100% !important;
+	}
+
+}
+

@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sorduklarım</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+          <ion-icon name="power"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row align-items-baseline>
+      <ion-col *ngFor="let post of asked_posts | async" col-6 (click)="openPost(post)">
+        <ion-card>
+          <ion-row>
+            <div class="container">
+
+              <img class="pic" src="{{ post.picture_1 }}">
+              <div class="blank"></div>
+              <img class="pic r-pic" src="{{ post.picture_2 }}">
+
+              <div class="likes">
+                <ion-icon name="thumbs-up"></ion-icon>
+                {{ count(post.likes_1) + count(post.likes_2) }}
+              </div>
+
+              <div class="comments">
+                <ion-icon name="text"></ion-icon>
+                {{ count(post.comments) }}
+              </div>
+
+            </div>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

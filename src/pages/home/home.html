@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      <img alt="logo" height="40" src="assets/icon/128.png">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row align-items-baseline>
+      <ion-col *ngFor="let post of posts | async" col-6 (click)="openPost(post)">
+        <ion-card>
+          <ion-row>
+            <div class="container">
+
+              <img class="pic" src="{{ post.picture_1 }}">
+              <div class="blank"></div>
+              <img class="pic r-pic" src="{{ post.picture_2 }}">
+
+              <div class="likes">
+                <ion-icon name="thumbs-up"></ion-icon>
+                {{ count(post.likes_1) + count(post.likes_2) }}
+              </div>
+
+              <div class="timer">
+                {{ calculateRemainingTime(post.time) }}
+              </div>
+
+              <div class="comments">
+                <ion-icon name="text"></ion-icon>
+                {{ count(post.comments) }}
+              </div>
+
+            </div>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

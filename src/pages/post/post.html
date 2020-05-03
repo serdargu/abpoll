@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ post.title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<script>
+  alert("a");
+
+</script>
+
+<ion-content class="cards-bg social-cards">
+  <ion-card id="auto-scroll">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/icon/64.png">
+      </ion-avatar>
+      <h2>{{ post.user_name }}</h2>
+    </ion-item>
+    <ion-row style="display: inline-block;">
+      <img class="pic" src="{{ post.picture_1 }}" (click)="sendLike('1')">
+      <div [ngStyle]="{display: Display}" style="position: absolute;" class="c100 p{{ round((count(likes_1 | async) / (count(likes_1 | async) + count(likes_2 | async))) * 100, true) }} small green left">
+        <span>{{ round((count(likes_1 | async) / (count(likes_1 | async) + count(likes_2 | async))) * 100, true) }}%</span>
+        <div class="slice">
+          <div class="bar"></div>
+          <div class="fill"></div>
+        </div>
+      </div>
+      <div class="blank"></div>
+      <img class="pic pic-right" src="{{ post.picture_2 }}" (click)="sendLike('2')">
+      <div [ngStyle]="{display: Display}" style="position: absolute;" class="c100 p{{ round((count(likes_2 | async) / (count(likes_1 | async) + count(likes_2 | async))) * 100, false) }} small green right">
+        <span>{{ round((count(likes_2 | async) / (count(likes_1 | async) + count(likes_2 | async))) * 100, false) }}%</span>
+        <div class="slice">
+          <div class="bar"></div>
+          <div class="fill"></div>
+        </div>
+      </div>
+    </ion-row>
+    <ion-card-content>
+      <ion-card-title style="font-weight: bold;">
+        {{ post.title }}
+      </ion-card-title>
+      <p>{{ post.description }}</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button style="color: #4A4A4A;" clear small icon-left>
+          <ion-icon name='thumbs-up'></ion-icon>
+          {{ count(likes_1 | async) + count(likes_2 | async) }} Likes
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button style="color: #4A4A4A;" clear small icon-left>
+          <ion-icon name='text'></ion-icon>
+          {{ count(comments | async) }} Comments 
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          {{ calculateRemainingTime(post.time) }}
+        </ion-note>
+      </ion-col>
+    </ion-row>
+
+    <ion-list>
+      <ion-item>
+        <ion-row>
+          <ion-input style="vertical-align: middle;"></ion-input>
+          <ion-icon name="star" style="vertical-align: middle;"></ion-icon>
+          Left Icon
+        </ion-row>
+      </ion-item>
+    </ion-list>
+
+    <div class="item row">
+      <div class="col">
+        <div class="item-input-inset">
+          <label class="item-input-wrapper">
+            <ion-input placeholder="Yorum yap.." [(ngModel)]="comment" style="width: 82%; float:left;"></ion-input>
+          </label>
+          <button ion-button class="button button-small" color="light" style="width: 15%; float:left;" clear (click)="sendComment(comment)">
+            <ion-icon name="send" color="primary"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <ion-list *ngFor="let comment of comments | async">
+      <ion-item>
+        <h2>{{ comment.user_name }}</h2>
+        <p>{{ comment.comment }}</p>
+      </ion-item>
+      <ion-item-divider></ion-item-divider>
+    </ion-list>
+
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,71 @@
+<ion-content>
+
+  <ion-row>
+
+    <ion-col col-12 text-right>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-col>
+
+    <ion-col col-12 text-center>
+      <img src="assets/icon/200.png">
+    </ion-col>
+
+    <!--<ion-col col-12 text-center>
+      <p>Şununla hızlıca bağlan</p>
+    </ion-col>
+
+    <ion-col col-12 text-center style="padding-top: 50px;">
+      <button ion-button round icon-left style="background-color:rgb(59, 89, 152); text-transform: none;" (click)="signInWithTwitter()">
+        <ion-icon name="logo-twitter"></ion-icon> Twitter ile giriş yap
+      </button>
+    </ion-col>-->
+
+    <ion-col col-12 text-center style="padding-top: 10px;">
+      <button ion-button round icon-left style="background-color:rgb(211, 72, 54); text-transform: none;" (click)="signInWithGoogle()">
+        <ion-icon name="logo-googleplus"></ion-icon> Google ile giriş yap
+        </button>
+    </ion-col>
+
+    <ion-col col-12 text-center>
+      <ion-item>
+        <ion-icon name="mail" item-left></ion-icon>
+        <ion-input [(ngModel)]="email" placeholder="Eposta"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="lock" item-left></ion-icon>
+        <ion-input [(ngModel)]="password" type="password" placeholder="Şifre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="person" item-left></ion-icon>
+        <ion-input [(ngModel)]="name" placeholder="İsim"></ion-input>
+      </ion-item>
+    </ion-col>
+
+    <ion-col col-12 text-center>
+      <button ion-button color="positive" block style="text-transform: none;" (click)="signUpWithEmail(email, password, name)">
+        Kaydol
+      </button>
+    </ion-col>
+
+    <!--<ion-col col-12 text-center>
+      <p>Veya e-postanı kullan</p>
+    </ion-col>
+
+    <ion-col text-center>
+      <button ion-button color="danger" round outline style="text-transform: none;" (click)="openRegister('register')">
+        Kaydol
+      </button>
+      <button ion-button color="danger" round outline style="text-transform: none;" (click)="openRegister('login')">
+        Giriş yap
+      </button>
+    </ion-col>
+
+    <ion-col col-12 text-center>
+      <p>Kaydolarak veya giriş yaparak Şartlar ve Koşullar & Gizlilik Politikasını kabul etmiş olursun.</p>
+    </ion-col>-->
+
+  </ion-row>
+
+</ion-content>
